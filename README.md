@@ -1,0 +1,2 @@
+# error-
+Func _ReduceMemory($dll = "psapi.dll")     If StringInStr(@OSTYPE, "WIN32_WINDOWS") And Not FileExists(@ScriptDir &amp; "\psapi.dll") Then         FileInstall("C:\Program Files\AutoIt3\psapi.dll", @ScriptDir &amp; "\psapi.dll")     EndIf     Local $ai_Return = DllCall($dll, 'int', 'EmptyWorkingSet', 'long', -1)     If @error Then Return 1     Return $ai_Return[0] EndFunc  ;==>_ReduceMemory
